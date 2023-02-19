@@ -1,4 +1,4 @@
-import {util, Context} from '@aws-appsync/utils';
+import {Context, util} from '@aws-appsync/utils';
 import {DynamoDBPutRequestType} from "./definitions";
 
 export function request(ctx: Context) {

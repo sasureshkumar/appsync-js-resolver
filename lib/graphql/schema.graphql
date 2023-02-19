@@ -6,7 +6,7 @@ schema {
 type Query {
     allPostsByTag(tag: String!, limit: Int, nextToken: String): PaginatedPosts!
     allPostsByAuthor(author: String!, limit: Int, nextToken: String): PaginatedPosts!
-    allPost(limit: Int, nextToken: String): PaginatedPosts!
+    allPosts(limit: Int, nextToken: String): PaginatedPosts!
     getPost(id: ID): Post
 }
 
