@@ -1,5 +1,5 @@
 {
-  "app": "tsc --project ./lib/functions/tsconfig.functions.json && npx ts-node --prefer-ts-exts bin/main-stack.ts",
+  "app": "tsc --project ./lib/functions/tsconfig.functions.json && node build.js && npx ts-node --prefer-ts-exts bin/main-stack.ts",
   "watch": {
     "include": [
       "**"

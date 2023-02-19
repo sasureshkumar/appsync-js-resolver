@@ -36,7 +36,7 @@ const addPostFunctionStack = new FunctionStack(app, stackPrefix + 'AddPostFuncti
     api: apiStack.api,
     runtime: runtime,
     dataSourceName: apiStack.postTableDataSource.name,
-    codePath: 'lib/functions/addPost.js',
+    codePath: 'lib/functions/dist/addPost.js',
 });
 
 const addPostResolverStack = new ResolverStack(app, stackPrefix + 'AddPostResolverStack', {

@@ -1,5 +1,5 @@
-import {Context, util} from '@aws-appsync/utils';
-import {DynamoDBPutRequestType} from "./definitions";
+import {Context} from '@aws-appsync/utils';
+import {dynamodbPutRequest} from "./common";
 
 export function request(ctx: Context) {
     const {id, ...values} = ctx.arguments;
@@ -11,12 +11,4 @@ export function request(ctx: Context) {
 
 export function response(ctx: Context) {
     return ctx.result;
-}
-
-function dynamodbPutRequest(request: DynamoDBPutRequestType) {
-    return {
-        operation: 'PutItem',
-        key: util.dynamodb.toMapValues(request.key),
-        attributeValues: util.dynamodb.toMapValues(request.values),
-    };
 }
