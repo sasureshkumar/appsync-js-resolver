@@ -1,0 +1,55 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    allPostsByTag(tag: String!, limit: Int, nextToken: String): PaginatedPosts!
+    allPostsByAuthor(author: String!, limit: Int, nextToken: String): PaginatedPosts!
+    allPost(limit: Int, nextToken: String): PaginatedPosts!
+    getPost(id: ID): Post
+}
+
+type Mutation {
+    addTag(id: ID!, tag: String!): Post
+    removeTag(id: ID!, tag: String!): Post
+    deletePost(id: ID!, expectedVersion: Int): Post
+    vote(id: ID!, direction: DIRECTION!): Post
+    updatePost(
+        id: ID!,
+        author: String,
+        title: String,
+        content: String,
+        url: String,
+        expectedVersion: Int!
+    ): Post
+    addPost(
+        id: ID!
+        author: String!
+        title: String!
+        content: String!
+        url: String!
+    ): Post!
+}
+
+type Post {
+    id: ID!
+    author: String
+    title: String
+    content: String
+    url: String
+    ups: Int!
+    downs: Int!
+    version: Int!
+    tags: [String!]
+}
+
+enum DIRECTION {
+    UP
+    DOWN
+}
+
+type PaginatedPosts {
+    posts: [Post!]!
+    nextToken: String
+}
